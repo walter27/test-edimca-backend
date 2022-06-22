@@ -13,3 +13,7 @@ Note: add web client url in properties file (Ej:http://localhost:4200, client an
 
 INSERT INTO edim_user (username, password, enabled) VALUES ('admin','$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS',true);
 INSERT INTO edim_role (user_id_fk, authority) VALUES (1,'ROLE_ADMIN');
+
+## Login
+username:admin
+password:12345
