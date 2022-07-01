@@ -32,6 +32,7 @@ public class ProductController {
 	public ResponseEntity<?> addProduct(@RequestBody Product product) {
 		Map<String, Object> response = new HashMap<>();
 		String message = "";
+		Product productSave =null;
 		try {
 			if (product.getId() != null) {
 				Optional<Product> optionalProduct = productService.findBId(product.getId());
@@ -40,12 +41,15 @@ public class ProductController {
 				optionalProduct.get().setPrice(product.getPrice());
 				message = "Update product";
 				productService.save(optionalProduct.get());
+				productSave=optionalProduct.get();
 			} else {
-				productService.save(product);
+				productSave = productService.save(product);
 				message = "Registered product";
 			}
 			response.put("status", "ok");
 			response.put("message", message);
+			response.put("id", message);
+			response.put("product", productSave);
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 		} catch (Exception e) {
 			response.put("status", "Error");

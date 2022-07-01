@@ -7,7 +7,7 @@ import ec.com.edimca.model.Product;
 
 public interface ProductService {
 
-	void save(Product product);
+	Product save(Product product);
 
 	void deleteById(Long id);
 	
